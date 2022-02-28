@@ -79,18 +79,18 @@ export default function Dashboard({view}) {
         .width(winWidth *0.8)
         .height(winHeight/2.7)
         .margins({top: 10, right: 10, bottom: 20, left: 50})
-        .gap(15)
         .dimension(weekDim)
+        .group(weekGroup)
         .colors(d3.schemeBrBG[7])
         .colorDomain([0, 6])
-        .colorAccessor(d => weeks.findIndex(k => k == d.key))
-        .group(weekGroup)
+        .colorAccessor(d => weeks.findIndex(k => k === d.key))
         .centerBar(true)
-        .xUnits(() => 15)
+        .xUnits(() => 20)
         .renderTitle(true)
         .brushOn(false)
         .elasticY(true)
-        .transitionDuration(1718)
+        .alwaysUseRounding(false)
+        .transitionDuration(1218)
         .x(d3.scaleBand().domain(weeks));
     } else {
       let hrChart = dc.barChart('#child-view');
@@ -100,13 +100,15 @@ export default function Dashboard({view}) {
         .margins({top: 10, right: 10, bottom: 20, left: 50})
         .gap(15)
         .dimension(hourDim)
+        .brushOn(false)
         .group(hourGroup)
         .xUnits(() => 20)
         .elasticY(true)
-        .transitionDuration(1518)
+        .transitionDuration(1218)
         .renderTitle(true)
         .x(d3.scaleBand().domain(Array(24).fill().map( (_, idx) => idx )));
 
+      window.hrChart = hrChart;
     }
 
     dc.renderAll();

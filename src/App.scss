@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 62.5%;
 }
 
 .App {
@@ -10,7 +11,7 @@
 
     &__header {
         height: 6vh;
-        width: 100vw;
+        width: 100%;
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
@@ -22,7 +23,7 @@
             height: 100%;
             outline: none;
             font-family: "Fira Sans", sans-serif;
-            font-size: 1rem;
+            font-size: 1.3rem;
             border-radius: 0.5rem;
             background-color: #626060;
             text-align: center;
@@ -50,19 +51,42 @@
         #category-chart, #event-chart {
             width: 50%;
             height: 100%;
+            box-shadow: -1rem 0.2rem 1rem #ccc;
         }
 
         svg {
             .dc-legend-item {
                 text {
-                    font-size: 0.7rem;
+                    font-size: 1rem;
                     font-weight: bold;
                 }
             }
+            text {
+                font-size: 1.2rem;
+                font-weight: bold;
+                fill: black;
+            }
+            g.axis text {
+                font-size: 0.9rem;
+                font-weight: bold;
+            }
         }
         #child-view {
-            width: 100vw;
-            height: 50vh;
+            margin-top: 1rem;
+            display: flex;
+            width: 95%;
+            height: 48vh;
+            justify-content: center;
+            flex-wrap: wrap;
+            h3 {
+                font-size: 1.5rem;
+                width: 90vw;
+                text-transform: capitalize;
+            }
+            svg {
+
+            box-shadow: -1rem 0.2rem 1rem #ccc, 1rem -0.2rem 1rem #ccc;
+            }
         }
     }
 }
